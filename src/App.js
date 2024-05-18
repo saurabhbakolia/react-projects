@@ -13,7 +13,6 @@ function App() {
   const [currentComponent, setCurrentComponent] = useState('UpdatingArray');
 
   const toggleOpenSideBar = () => {
-    console.log("Menu Icon clicked!", isSideBarOpen);
     setIsSideBarOpen(!isSideBarOpen);
   };
 
@@ -21,7 +20,10 @@ function App() {
     <div className='main-app-div'>
       <IoMenu className='menu-icon' onClick={toggleOpenSideBar} />
       <div className={`sidebar-div ${isSideBarOpen ? `sidebar-is-open` : ``}`}><SideBar /></div>
-      <div className={`component-div ${isSideBarOpen ? `open-side-bar` : ``}`}>{currentComponent && createElement(components[currentComponent])}</div>
+      <div className={`component-div ${isSideBarOpen ? `open-side-bar` : ``}`}>
+        <p className='scrollme-logo'>SCROLL <span>ME</span></p>
+        {currentComponent && createElement(components[currentComponent])}
+      </div>
     </div>
   );
 }
