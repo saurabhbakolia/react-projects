@@ -1,0 +1,12 @@
+:root {
+    --primary-color: #4D869C;
+    --secondary-color: #7AB2B2;
+    --background-color: #EEF7FF;
+    --text-color: #CDE8E5;
+
+    /* Screen size breakpoints */
+    --small-screen: 480px;
+    --medium-screen: 768px;
+    --large-screen: 1024px;
+    --extra-large-screen: 1200px;
+}

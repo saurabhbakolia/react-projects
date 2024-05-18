@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import { createElement, useState } from 'react';
 import './App.css';
+import UpdatingArray from './components/UpdatingArray/UpdatingArray';
+import SideBar from './components/SideBar/SideBar';
+import { IoMenu } from 'react-icons/io5';
+
+const components = {
+  UpdatingArray: UpdatingArray,
+}
 
 function App() {
+  const [currentComponent, setCurrentComponent] = useState('UpdatingArray');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='main-app-div'>
+      <IoMenu className='menu-icon' />
+      <div className='sidebar-div'><SideBar /></div>
+      <div className='component-div'>{currentComponent && createElement(components[currentComponent])}</div>
     </div>
   );
 }
