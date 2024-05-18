@@ -8,17 +8,26 @@
 }
 
 .sidebar-div {
-    height: calc(100% - 8px);
-    flex-basis: 24%;
+    height: 100%;
+    flex-basis: 0%;
     background-color: var(--primary-color);
-    padding: 4px;
+    transform: translateX(-100%);
+}
+
+.sidebar-is-open {
+    flex-basis: 24%;
+    transform: translateX(0);
 }
 
 .component-div {
     height: calc(100% - 24px);
-    flex-basis: 76%;
+    flex-basis: 100%;
     background-color: var(--secondary-color);
     padding: 20px 4px 4px 60px;
+}
+
+.open-side-bar {
+    flex-basis: 100%;
 }
 
 .menu-icon {

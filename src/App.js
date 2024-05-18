@@ -9,13 +9,19 @@ const components = {
 }
 
 function App() {
+  const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const [currentComponent, setCurrentComponent] = useState('UpdatingArray');
+
+  const toggleOpenSideBar = () => {
+    console.log("Menu Icon clicked!", isSideBarOpen);
+    setIsSideBarOpen(!isSideBarOpen);
+  };
 
   return (
     <div className='main-app-div'>
-      <IoMenu className='menu-icon' />
-      <div className='sidebar-div'><SideBar /></div>
-      <div className='component-div'>{currentComponent && createElement(components[currentComponent])}</div>
+      <IoMenu className='menu-icon' onClick={toggleOpenSideBar} />
+      <div className={`sidebar-div ${isSideBarOpen ? `sidebar-is-open` : ``}`}><SideBar /></div>
+      <div className={`component-div ${isSideBarOpen ? `open-side-bar` : ``}`}>{currentComponent && createElement(components[currentComponent])}</div>
     </div>
   );
 }
