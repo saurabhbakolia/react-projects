@@ -1,17 +1,12 @@
-import { createElement, useState } from "react";
+import { useState } from "react";
 import "./App.css";
-import UpdatingArray from "./components/UpdatingArray/UpdatingArray";
-import SideBar from "./components/SideBar/SideBar";
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
-import JokesApp from "./components/JokesApp/JokesApp";
 import { Box, Drawer, IconButton, List, ListItemButton, ListItemText } from "@mui/material";
+import componentsObject from "./utils/components";
 
 const drawerWidth = 240;
 
-const components = {
-  UpdatingArray: UpdatingArray,
-  JokesApp: JokesApp,
-};
+const components = componentsObject;
 
 function App() {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
@@ -37,7 +32,7 @@ function App() {
         anchor="left"
         open={isSideBarOpen}
         sx={{
-          width: isSideBarOpen ? 240 : 0,
+          width: isSideBarOpen ? drawerWidth : 0,
           height: "90%",
           flexShrink: 0,
           transition: 'width 0.3s',
@@ -54,11 +49,11 @@ function App() {
           sx={{
             position: 'fixed',
             top: '94%',
-            left: 15, // Adjust to make it more visible
-            zIndex: 1300, // Ensure the button is above other elements
-            backgroundColor: 'white', // Optional: Add background for better visibility
+            left: 15,
+            zIndex: 1300,
+            backgroundColor: 'white',
             '&:hover': {
-              backgroundColor: 'lightgray', // Optional: Change color on hover
+              backgroundColor: 'lightgray',
             },
           }}
         >
@@ -84,7 +79,6 @@ function App() {
       >
         {renderComponent()}
       </Box>
-
     </Box>
   );
 }
